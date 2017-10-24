@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>checkbox全选/取消/反选</title>
+        <script>
+            window.onload = function () {
+                let btns = document.getElementsByClassName("btn");
+
+                function setEvent(index, value) {
+                    btns[index].onclick = function(){
+                        let oDiv = document.getElementById("div1");
+                        let oCbx = oDiv.getElementsByTagName("input")
+
+                        for(let i = 0; i < oCbx.length; i++){
+                            oCbx[i].checked = value;
+                        }
+                    }
+                }
+
+                setEvent(0, true);
+                setEvent(1, false);
+                //取反得异或，不能直接写值了。
+                btns[2].onclick = ()=>{
+                    let oDiv = document.getElementById("div1");
+                    let oCbx = oDiv.getElementsByTagName("input")
+
+                    for(let i = 0; i < oCbx.length; i++){
+                        oCbx[i].checked ^= true;
+                    }
+                }
+
+
+/*
+                btn1.onclick = function() {
+                    let oDiv = document.getElementById("div1");
+                    let oCbx = oDiv.getElementsByTagName("input")
+
+                    for(let i = 0; i < oCbx.length; i++){
+                        oCbx[i].checked = true;
+                    }
+                }
+
+                btn2.onclick = function() {
+                    let oDiv = document.getElementById("div1");
+                    let oCbx = oDiv.getElementsByTagName("input")
+
+                    for(let i = 0; i < oCbx.length; i++){
+                        oCbx[i].checked = false;
+                    }
+                }
+
+                btn3.onclick = function() {
+                    let oDiv = document.getElementById("div1");
+                    let oCbx = oDiv.getElementsByTagName("input")
+
+                    for(let i = 0; i < oCbx.length; i++){
+                        oCbx[i].checked ^= true;
+                    }
+                }
+*/
+            }
+        </script>
+    </head>
+    <body>
+        
+<!-- Emmet写法：input:button[class="btn" value=""]*3 -->
+        <input type="button" value="全选" class="btn">
+        <input type="button" value="取消" class="btn">
+        <input type="button" value="反选" class="btn">
+
+<!--
+        <input id="btn1" type="button" value="全选">
+        <input id="btn2" type="button" value="取消">
+        <input id="btn3" type="button" value="反选">
+-->
+
+<!-- Emmet写法（试了半天）：div[id="div1"]>((label[for="cb$"]>input:checkbox[id="cb$"]{这是一封邮件})+br)*10 -->
+
+        <div id="div1" style="margin-top: 20px">
+            <label for="cb1"><input type="checkbox" name="" id="cb1">这是一封邮件</label><br>
+            <label for="cb2"><input type="checkbox" name="" id="cb2">这是一封邮件</label><br>
+            <label for="cb3"><input type="checkbox" name="" id="cb3">这是一封邮件</label><br>
+            <label for="cb4"><input type="checkbox" name="" id="cb4">这是一封邮件</label><br>
+            <label for="cb5"><input type="checkbox" name="" id="cb5">这是一封邮件</label><br>
+            <label for="cb6"><input type="checkbox" name="" id="cb6">这是一封邮件</label><br>
+            <label for="cb7"><input type="checkbox" name="" id="cb7">这是一封邮件</label><br>
+            <label for="cb8"><input type="checkbox" name="" id="cb8">这是一封邮件</label><br>
+            <label for="cb9"><input type="checkbox" name="" id="cb9">这是一封邮件</label><br>
+            <label for="cb10"><input type="checkbox" name="" id="cb10">这是一封邮件</label><br>
+        </div>
+
+    </body>
+</html>
