@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>延时弹窗</title>
+        <style media="screen">
+            div {
+                float: left;
+                margin: 10px;
+            }
+            #div1 {
+                width: 50px;
+                height: 50px;
+                background-color: red;
+            }
+            #div2 {
+                width: 250px;
+                height: 150px;
+                background-color: #ccc;
+                display: none;
+            }
+        </style>
+        <script>
+            window.onload = ()=>{
+                let oDiv1 = document.getElementById("div1");
+                let oDiv2 = document.getElementById("div2");
+                let timer = null;
+
+                oDiv1.onmouseover = oDiv2.onmouseover = ()=>{
+                    clearTimeout(timer);
+                    oDiv2.style.display = 'block';
+                };
+                
+                oDiv1.onmouseout = oDiv2.onmouseout = ()=>{
+                    timer = setTimeout(
+                        ()=>{
+                            oDiv2.style.display = 'none';
+                        }, 500);
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <!-- div[id="div$"]*2 -->
+        <div id="div1"></div>
+        <div id="div2"></div>
+    </body>
+</html>
